@@ -1,4 +1,4 @@
-<!-- CUSTOM log4j2.xml FILE ADDED TO JAVA OFFLINE BUILDPACK -->
+<!-- CUSTOM log4j2.xml FILE ADDED TO JAVA ONLINE BUILDPACK -->
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="INFO" monitorInterval="2">
     <Appenders>
