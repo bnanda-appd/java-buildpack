@@ -1,0 +1,51 @@
+<!-- CUSTOM custom-activity-correlation.xml FILE ADDED TO JAVA OFFLINE BUILDPACK -->
+<activities>
+    <producer>
+        <instrumentation>
+            <class-name>com.appdcs.correlation.payload.MyClient</class-name>
+            <method-name>writeMessage</method-name>
+            <match-type>MATCHES_CLASS</match-type>
+        </instrumentation>
+        <identifiers>
+            <identifier name="HOST">
+                <data-gatherer-type>POSITION</data-gatherer-type>
+                <position>0</position>
+                <getter-chain>getHost()</getter-chain>
+                <transformer-type>GETTER_METHODS</transformer-type>
+            </identifier>
+        </identifiers>
+		<correlation>
+            <payload-pointer>
+                <data-gatherer-type>POSITION</data-gatherer-type>
+				<position>0</position>
+                <getter-chain>this</getter-chain>
+                <transformer-type>GETTER_METHODS</transformer-type>
+            </payload-pointer>
+            <payload-operation>
+                <access-type>method</access-type>
+                <access-method>setCorrelationId</access-method>
+                <param-types>java.lang.String</param-types>
+            </payload-operation>
+            </correlation>
+        </producer>
+    <consumer identify-transaction="true">
+        <instrumentation>
+            <class-name>com.appdcs.correlation.payload.MyServer</class-name>
+            <method-name>processMessage</method-name>
+            <match-type>MATCHES_CLASS</match-type>
+        </instrumentation>
+        <correlation>
+            <payload-pointer>
+                <data-gatherer-type>POSITION</data-gatherer-type>
+                <position>0</position>
+                <getter-chain>this</getter-chain>
+                <transformer-type>GETTER_METHODS</transformer-type>
+            </payload-pointer>
+            <payload-operation>
+                <access-type>method</access-type>
+                <access-method>getCorrelationId</access-method>
+				<param-types></param-types>
+            </payload-operation>
+        </correlation>
+    </consumer>
+</activities>

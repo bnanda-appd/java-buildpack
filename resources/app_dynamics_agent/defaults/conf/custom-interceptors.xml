@@ -1,0 +1,12 @@
+<!-- CUSTOM custom-interceptors.xml FILE ADDED TO JAVA OFFLINE BUILDPACK -->
+<custom-interceptors>
+    <custom-interceptor>
+        <interceptor-class-name>com.singularity.KafkaMarkerMethodInterceptor</interceptor-class-name>
+        <match-class type="matches-class">
+            <name filter-type="equals">com.liveperson.architecture.cqrs.events.processor.kafka.consumer.KafkaEventReader</name>
+        </match-class>
+        <match-method>
+            <name>run</name>
+        </match-method>
+    </custom-interceptor>
+</custom-interceptors>

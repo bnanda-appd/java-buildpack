@@ -1,3 +1,4 @@
+<!-- CUSTOM app-agent-config.xml FILE ADDED TO JAVA OFFLINE BUILDPACK -->
 <app-agent-configuration>
     <configuration-properties>
         <property name="agent-overwrite" value="false"/>
@@ -285,7 +286,9 @@
                 Add comma-separated list of async environment names.  These will be used to enable async transaction detection
                 for supported environments.  Current supported async environments: mule,camel,jbossesb,tibcobw,scala
                  -->
-                 <!--  property name="enable-async-correlation-for" value="mule,camel,jbossesb,tibcobw,scala"/ -->
+                 <!--property name="enable-async-correlation-for" value="mule,camel,jbossesb,tibcobw,scala"/-->
+                 <!-- Config from AppDynamics Support for Ticket#268010-->
+                 <property name="enable-async-correlation-for" value="scala"/>
 
                 <!--
                 Cassandra CQL / Datastax driver: uncomment to name Cassandra backends with IP/port instead of naming
@@ -550,6 +553,10 @@
                     <include filter-type="STARTSWITH" filter-value="com.ibm.ws"/>
                     <include filter-type="STARTSWITH" filter-value="com.ibm.wsspi"/>
                     <include filter-type="STARTSWITH" filter-value="com.ibm.io.async"/>
+
+                    <!-- Config from AppDynamics Support for Ticket#268010-->
+                    <include filter-type="EQUALS" filter-value="akka/dispatch/Mailbox"/>
+                    <include filter-type="EQUALS" filter-value="akka.dispatch.Mailbox"/>
 
                     <!--
                     match-class
