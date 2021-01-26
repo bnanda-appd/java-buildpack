@@ -1,4 +1,4 @@
-<!-- CUSTOM custom-activity-correlation.xml FILE ADDED TO JAVA OFFLINE BUILDPACK -->
+<!-- CUSTOM custom-activity-correlation.xml FILE ADDED TO JAVA ONLINE BUILDPACK -->
 <activities>
     <producer>
         <instrumentation>
