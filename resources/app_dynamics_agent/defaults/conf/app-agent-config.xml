@@ -1,4 +1,4 @@
-<!-- CUSTOM app-agent-config.xml FILE ADDED TO JAVA OFFLINE BUILDPACK -->
+<!-- CUSTOM app-agent-config.xml FILE ADDED TO JAVA ONLINE BUILDPACK -->
 <app-agent-configuration>
     <configuration-properties>
         <property name="agent-overwrite" value="false"/>
