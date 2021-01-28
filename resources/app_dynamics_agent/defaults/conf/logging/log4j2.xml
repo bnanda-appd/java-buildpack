@@ -1,5 +1,5 @@
-<!-- CUSTOM log4j2.xml FILE ADDED TO JAVA ONLINE BUILDPACK -->
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- CUSTOM log4j2.xml FILE ADDED TO JAVA ONLINE BUILDPACK -->
 <Configuration status="INFO" monitorInterval="2">
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
